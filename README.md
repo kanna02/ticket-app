@@ -73,4 +73,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 ## Project Structure
 - assets directory: stores images
 - components directory: stores individual components reused for web-app
-- pages directory: stores web-pages (user account, login, dashboard)
+- pages directory: stores web-pages (user account, start-page, project-board, my-projects)
