@@ -1,0 +1,70 @@
+.App {
+  text-align: left;
+  display: flex;
+}
+
+.Image-Positioning {
+  position: relative;
+  width: 600px;
+  padding-top: 200px;
+}
+
+.Left-Part {
+  width: 500px;
+  text-align: left;
+  padding-left: 150px;
+  padding-top: 200px;
+}
+
+.App-header {
+  background-color: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: black;
+}
+
+.Title {
+  font-size: 40px;
+  font-family: Inter;
+  font-weight: bold;
+}
+
+.Subtitle {
+  color: gray;
+  font-size: 30px;
+  font-family: Inter;
+  font-weight: 340;
+
+}
+
+.Google-Button {
+  border: 1px solid blueviolet;
+  border-radius: 15px;
+  text-align: center; 
+  margin-right: 200px;
+  display: flex;
+  transition: background-color 1s ease;
+}
+
+.Google-Button:hover {
+  background-color: blueviolet ;
+  color: white;
+  cursor: pointer;
+}
+
+.Google-Text {
+  color: gray;
+  font-size: 23px;
+}
+
+.Google-Icon {
+  width: 10%;
+  height: auto;
+  position: relative;
+  align-items: center;
+  padding: 20px;
+}
