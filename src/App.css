@@ -157,3 +157,22 @@ a.active {
   margin: 8px 0;
   box-sizing: border-box;
 }
+
+/* Dropdown */
+
+.dropdown-container{
+  margin: 16px 0;
+}
+
+.dropdown-container label{
+  display: block;
+  margin-bottom: 8px;
+}
+
+.dropdown{
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
