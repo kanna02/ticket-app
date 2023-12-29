@@ -11,6 +11,7 @@
 
 .title {
     text-align: center;
+    font-weight: 400;
 }
 
 .row {
@@ -40,8 +41,4 @@
 
 .button {
     flex: 1;
-}
-
-.title {
-    font-weight: 400;
 }
