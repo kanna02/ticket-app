@@ -1,5 +1,5 @@
 import React from 'react'
-import "../../App.css"
+import "../../components-css/Text-input.css"
 
 
 export const TextInput = () => {

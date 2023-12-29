@@ -1,6 +1,6 @@
 import React from 'react'
 import { TicketCard } from "../ticket-card/TicketCard"; 
-import '../../App.css';
+import "../../components-css/Status-column.css"
 export const StatusColumn = () => {
   return (
     <div className="project-board">

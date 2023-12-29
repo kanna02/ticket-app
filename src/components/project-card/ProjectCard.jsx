@@ -1,5 +1,5 @@
 import React from 'react'
-
+import "../../components-css/Project-card.css"
 export const ProjectCard = (props) => {
   return (
 

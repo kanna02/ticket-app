@@ -4,7 +4,7 @@ import { faDatabase } from '@fortawesome/free-solid-svg-icons'
 import { faUser } from '@fortawesome/free-solid-svg-icons'
 import { faRightFromBracket } from '@fortawesome/free-solid-svg-icons'
 import { faFile } from '@fortawesome/free-solid-svg-icons'
-import "../../App.css"
+import "../../components-css/Header.css"
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export const NavBar = () => {

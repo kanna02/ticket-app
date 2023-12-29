@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../App.css';
+import "../../components-css/Dropdown.css"
 
 export const Dropdown = ({ options, onSelect, selectedOption }) => {
   return (

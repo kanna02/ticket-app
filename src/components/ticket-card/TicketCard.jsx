@@ -1,5 +1,5 @@
 import React from 'react'
-import '../../App.css';
+import "../../components-css/Ticket-card.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faVolumeOff, faVolumeLow, faVolumeHigh } from '@fortawesome/free-solid-svg-icons';
 

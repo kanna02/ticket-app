@@ -51,7 +51,7 @@ function App() {
 
       {/* Button */}
 
-      {/* <Button text="Save" onClick={handleButtonClick} /> */}
+      <Button text="Save" onClick={handleButtonClick} />
 {/* Project card */}
 {/* 
       <ProjectCard
@@ -82,7 +82,7 @@ function App() {
     priority="high"
     /> */}
 
-    <StatusColumn/>
+    {/* <StatusColumn/> */}
 
 {/* No use */}
         {/* <img src={logo} className="App-logo" alt="logo" />
