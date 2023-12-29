@@ -51,7 +51,7 @@ function App() {
 
       {/* Button */}
 
-      {/* <Button text="Save" onClick={handleButtonClick} /> */}
+      <Button text="Save" onClick={handleButtonClick} />
 {/* Project card */}
 {/* 
       <ProjectCard
