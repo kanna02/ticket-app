@@ -1,0 +1,47 @@
+.popup {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: fixed;
+    width: 600px;
+    height: 620px;
+    border-radius: 1%;
+    box-shadow: 1px 1px 5px gray;
+}
+
+.title {
+    text-align: center;
+}
+
+.row {
+    display: flex;
+    margin: 50px;
+}
+
+.label {
+    font-size: 25px;
+    font-family: Inter;
+    color: gray;
+    width: 250px;
+    vertical-align: middle;
+    height: 60px;
+    line-height: 60px;
+}
+
+.input {
+    width: 400px;
+    display: block;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+}
+
+.button {
+    flex: 1;
+}
+
+.title {
+    font-weight: 400;
+}
