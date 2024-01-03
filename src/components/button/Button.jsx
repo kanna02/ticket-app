@@ -9,3 +9,4 @@ export const Button = ({ text, onClick }) => {
     </button>
   )
 }
+
