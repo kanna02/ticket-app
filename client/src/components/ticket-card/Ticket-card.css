@@ -1,0 +1,25 @@
+.ticket-card{
+    border: 1px solid white;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+    position: relative;
+  }
+  
+  .ticket-footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .ticket-logo{
+    width: 50px;
+    height: auto;
+  }
+  
+  .ticket-id{
+    font-weight: bold;
+    font-size: 1em;
+  }
+  

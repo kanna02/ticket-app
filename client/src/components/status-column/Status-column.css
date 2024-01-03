@@ -1,0 +1,35 @@
+.project-board {
+    background: white;
+    padding: 20px;
+  }
+  
+  .project-board h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .columns {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .column {
+    width: 24%; 
+    margin-right: 1%; 
+  }
+  
+  .column:last-child {
+    margin-right: 0;
+  }
+  
+  .column h2 {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  .column-content {
+    background-color: #f0f0f0; 
+    min-height: 700px; 
+    padding: 10px;
+    border-radius: 4px;
+  }
