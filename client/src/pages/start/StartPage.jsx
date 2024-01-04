@@ -4,6 +4,7 @@ import google_icon from '../../assets/google_Icon.png'
 import './StartPage.css';
 import axios from 'axios';
 import LoginButton from "../../components/login/login";
+import { GoogleLogin, GoogleOAuthProvider } from '@react-oauth/google';
 
 
 function StartPage() {
@@ -29,6 +30,18 @@ function StartPage() {
           tasks - individually or as part of a team.
         </p>
         <LoginButton/>
+        {/* <GoogleOAuthProvider clientId='975454066980-4g7e706rtl1ukvctquj9g5ubg3cbvgrq.apps.googleusercontent.com'>
+        <GoogleLogin
+        onSuccess={(credentialResponse) =>{
+          console.log(credentialResponse)
+        }}
+        onError={() => {
+          console.log("Login failed")
+        }}
+        />
+        
+        </GoogleOAuthProvider> */}
+        {/* <LoginButton/> */}
         {/* <div className='Google-Button'>
           <img src={google_icon} className="Google-Icon" alt="dashboard" />
           <p className='Google-Text'>Sign in with Google</p>         

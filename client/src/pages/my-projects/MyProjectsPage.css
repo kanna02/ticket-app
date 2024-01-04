@@ -1,3 +1,10 @@
+.projects-headers {
+    position: fixed;
+    left: 50px; 
+    top: 150px; 
+    text-align: left;
+}
+
 .my-projects-container {
     padding-top: 60px; 
     display: flex;
@@ -5,12 +12,7 @@
     align-items: center;
 }
 
-.projects-header {
-    position: fixed;
-    left: 50px; 
-    top: 150px; 
-    text-align: left;
-}
+
 
 .header-actions {
     position: fixed;

@@ -32,12 +32,12 @@ function MyProjectsPage(props) {
         <div className="my-projects-container">
             <NavBar/>
             <div className="top-container">
-            <div className="projects-header">
+            <div className="projects-headers">
                 <h1>My Projects</h1>
                 <p>Welcome back, select your project.</p>
             </div>
             <div className="header-actions">
-                    <Button plus onClick={handleAddProjectClick} />             
+                    <Button round onClick={handleAddProjectClick} />             
                 </div>
             </div>
                 <div className="projects-container">

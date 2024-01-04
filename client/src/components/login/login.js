@@ -16,15 +16,12 @@ function Login() {
     }
  
     return (
-<GoogleOAuthProvider clientId={clientId}>
-<div id="signInButton">
-<GoogleLogin
-                    onSuccess={onSuccess}
-                    onFailure={onFailure}
-                    useOneTap
-                />
-</div>
-</GoogleOAuthProvider>
+        <GoogleOAuthProvider clientId={clientId}>
+            <GoogleLogin
+                onSuccess={onSuccess}
+                onFailure={onFailure}
+            />
+        </GoogleOAuthProvider>
     );
 }
  

@@ -24,12 +24,14 @@ function MyAccountPage(props) {
                     <TextInput label="Email" name="email" placeholder="Enter your email" />
                 </div>
                 <div className="form-buttons">
-                    <Button text="Save" onClick={() => {}} className="btn-save" />
-                    <Button text="Cancel" onClick={() => {}} className="btn-cancel" />
+                    <Button save text="Save" onClick={() => {}} className="btn-save" />
+                    <Button cancel text="Cancel" onClick={() => {}} className="btn-cancel" />
                 </div>
             </div>
         </div>
     );
 }
-
+<div className="header-actions">
+{/* <Button round onClick={handleAddProjectClick} />              */}
+</div>
 export default MyAccountPage;
