@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import './TicketPopup.css';
 import { Button } from "../button/Button";
 import { TextInput } from "../text-input/TextInput";
 import Date from "../date/Date";
+import { Dropdown } from "../dropdown/Dropdown";
 
 export function TicketPopup(props) {
+
+    const [priority, setPriority] = useState(null);
 
     return(
         <div className="ticket-popup">
@@ -26,7 +29,7 @@ export function TicketPopup(props) {
             <div className="row">
                 <div className="label">Priority</div>
                 <div className="input">
-                    <TextInput/>
+                    <Dropdown options={["low", "medium", "high"]} selectedOption={priority} onSelect={setPriority}/>
                 </div>
             </div>
             <div className="row">
@@ -54,8 +57,8 @@ export function TicketPopup(props) {
                 </div>
             </div> 
             <div className="buttons">
-                <Button text="Save"/>
-                <Button text="Cancel" onClick={props.cancelOnClick}/>
+                <Button save text="Save"/>
+                <Button cancel text="Cancel" onClick={props.cancelOnClick}/>
             </div>   
         </div>
     );

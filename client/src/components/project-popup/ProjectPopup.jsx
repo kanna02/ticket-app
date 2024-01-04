@@ -36,8 +36,8 @@ export function ProjectPopup(props) {
                 </div>
             </div> 
             <div className="buttons">
-                <Button text="Save"/>
-                <Button text="Cancel" onClick={props.cancelOnClick}/>
+                <Button save text="Save"/>
+                <Button cancel text="Cancel" onClick={props.cancelOnClick}/>
             </div>   
         </div>
     );
