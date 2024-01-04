@@ -1,8 +1,21 @@
+import { useEffect, useState } from 'react';
 import dashboard from '../../assets/dashboard.png'
 import google_icon from '../../assets/google_Icon.png'
 import './StartPage.css';
 
 function StartPage() {
+
+  const [users, setUsers] = useState([]);
+
+  const baseURL = 'https://db-api-dot-task-master-409210.nw.r.appspot.com/api/get/users';
+
+  useEffect(() => {
+    axios.get(baseURL).then((response) => {
+      setUsers(response.data);
+    });
+  }, []);
+
+  console.log(users);
   
   return (
     <div className="App">
