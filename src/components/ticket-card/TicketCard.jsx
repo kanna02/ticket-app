@@ -16,15 +16,16 @@ export const getPriorityIcon = (priority) => {
   }
 };
 
-export const TicketCard = ({ id, title, priority }) => {
+export const TicketCard = ({priority, name, id }) => {
     const priorityIcon = getPriorityIcon(priority);
   
     return (
       <div className="ticket-card">
-        <h2>{title}</h2>
+        <h3>{name}</h3>
         <div className="ticket-footer">
           <FontAwesomeIcon icon={priorityIcon} size="2x" className={`ticket-icon ${priority}`} />
-          <span className="ticket-id">{id}</span>
+          {/* <span className="ticket-id">{id}</span> */}
+          <span className='ticket-id'>Ticket ID: {id}</span>
         </div>
       </div>
     );
