@@ -1,4 +1,4 @@
-.project-board {
+/* .project-board {
     background: white;
     padding: 20px;
   }
@@ -32,4 +32,34 @@
     min-height: 700px; 
     padding: 10px;
     border-radius: 4px;
-  }
+  } */
+
+  .projects-header {
+    position: fixed;
+    left: 875px; 
+    top: 150px; 
+    text-align: left;
+}
+.board {
+  display: flex;
+  justify-content: space-between;
+}
+
+.column {
+  /* flex: 0; */
+  margin: 0 30px; /* Adjust the margin as needed */
+}
+
+.column-header {
+  text-align: center;
+  font-size: 1.5rem; /* Adjust the font size as needed */
+  margin-bottom: 0.5rem; /* This pushes the grey column down slightly */
+}
+
+.column-content {
+  background-color: #f4f5f7;
+  border-radius: 5px;
+  width: 300px;
+  min-height: 500px; /* Adjust based on your content */
+  /* If you want the column-content to be directly attached under the header, remove any top padding or margin here */
+}

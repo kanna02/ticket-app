@@ -3,6 +3,8 @@ import dashboard from '../../assets/dashboard.png'
 import google_icon from '../../assets/google_Icon.png'
 import './StartPage.css';
 import axios from 'axios';
+import LoginButton from "../../components/login/login";
+
 
 function StartPage() {
 
@@ -26,10 +28,11 @@ function StartPage() {
           Efficiently manage your project <br/>
           tasks - individually or as part of a team.
         </p>
-        <div className='Google-Button'>
+        <LoginButton/>
+        {/* <div className='Google-Button'>
           <img src={google_icon} className="Google-Icon" alt="dashboard" />
           <p className='Google-Text'>Sign in with Google</p>         
-        </div>
+        </div> */}
       </div>
       <div className='Image-Positioning'>
         <img src={dashboard} className="" alt="dashboard" />

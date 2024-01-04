@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { TicketPopup } from "../../components/ticket-popup/TicketPopup";
+import { NavBar } from "../../components/headerbar/NavBar";
+import { StatusColumn } from "../../components/status-column/StatusColumn";
 
 function ProjectBoardPage(props) {
 
-    const [showTicketPopup, setShowTicketPopup] = useState(true);
+    const [showTicketPopup, setShowTicketPopup] = useState(false);
 
     const closePopup = () => {
         setShowTicketPopup(false);
@@ -16,10 +18,12 @@ function ProjectBoardPage(props) {
 
     return (
         <div>
-            <h1>Project Board</h1>
+            <NavBar/>
+            <StatusColumn/>
             {showTicketPopup && <TicketPopup cancelOnClick={closePopup} />}
         </div>
     );
 }
 
 export default ProjectBoardPage;
+
