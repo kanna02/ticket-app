@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import dashboard from '../../assets/dashboard.png'
 import google_icon from '../../assets/google_Icon.png'
 import './StartPage.css';
+import axios from 'axios';
 
 function StartPage() {
 
