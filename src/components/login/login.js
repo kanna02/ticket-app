@@ -8,7 +8,7 @@ function Login(){
     const navigate = useNavigate();
     const onSuccess = (res) =>{
         console.log("LOGIN SUCCESS! CURRENT user: ", res.profileObj);
-        navigate("/my-account");
+        navigate("/my-projects");
         
     }
 
@@ -23,7 +23,7 @@ function Login(){
                 onSuccess={onSuccess}
                 onFailure={onFailure}
                 cookiePolicy={'single_host_origin'}
-                isSignedIn={true}
+                // isSignedIn={true}
                 />
         </div>
     )

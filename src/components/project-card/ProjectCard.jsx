@@ -1,9 +1,16 @@
 import React from 'react'
+import { Navigate, useNavigate } from 'react-router-dom';
 import "./Project-card.css"
 export const ProjectCard = (props) => {
+  const navigate = useNavigate(); 
+
+  const handleCardClick = () => {
+
+    navigate('/project-board');
+  };
   return (
 
-<div className="project-card">
+<div className="project-card" onClick={handleCardClick}>
       <div className="project-content">
     
         <h2>{props.name}</h2>

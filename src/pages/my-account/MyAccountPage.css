@@ -1,0 +1,78 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.account-form {
+    width: 100%;
+    max-width: 800px; /* Adjust the max-width as needed */
+    margin: auto;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Optional: adds shadow for depth */
+    border-radius: 10px; /* Optional: rounds the corners of the form */
+    background: white; /* Optional: in case you want a different background */
+    text-align: center;
+}
+
+.form-title {
+    font-size: 2rem; /* Larger font size for the title */
+    margin-bottom: 30px;
+}
+
+.form-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.input-container {
+    flex: 1; /* Allows input fields to fill up the flex container */
+    margin: 0 10px;
+}
+
+.input-label {
+    display: block;
+    margin-bottom: 10px;
+    text-align: left;
+    font-size: 1.2rem; /* Larger font size for labels */
+}
+
+.input-text {
+    width: 100%;
+    padding: 15px; /* Larger padding for bigger input fields */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1.1rem; /* Larger font size for input text */
+}
+
+.form-buttons {
+    display: flex;
+    justify-content: center; /* Center the buttons */
+    margin-top: 20px;
+}
+
+.btn {
+    padding: 10px 20px; /* Larger padding for bigger buttons */
+    font-size: 1.1rem; /* Larger font size for button text */
+    margin: 0 10px;
+    min-width: 120px; /* Minimum width for buttons */
+}
+
+.btn-save {
+    /* Styles for save button */
+}
+
+.btn-cancel {
+    /* Styles for cancel button */
+}
