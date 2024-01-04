@@ -7,7 +7,7 @@ import Date from "../date/Date";
 export function TicketPopup(props) {
 
     return(
-        <div className="popup">
+        <div className="ticket-popup">
             <div className="title">
                 <h1 className="title">Create New Ticket</h1>
             </div>

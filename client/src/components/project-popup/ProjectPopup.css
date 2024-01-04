@@ -1,12 +1,13 @@
-.popup {
+.project-popup {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     position: fixed;
     width: 600px;
-    height: 620px;
+    height: 520px;
     border-radius: 1%;
     box-shadow: 1px 1px 5px gray;
+    background-color: white;
 }
 
 .title {
