@@ -1,0 +1,14 @@
+service: "db-api"
+runtime: "nodejs20"
+health_check:
+  enable_health_check: true
+handlers:
+- url: /.*
+  script: auto
+env_variables:
+  DB_USER: "root"
+  DB_PASS: "root"
+  DB_NAME: "db-task-master"
+  DB_DSN: "mysql:unix_socket=/cloudsql/task-master-409210:europe-west2:db-ticket-master"
+  INSTANCE_HOST: "34.142.43.240"
+  INSTANCE_UNIX_SOCKET: "/cloudsql/task-master-409210:europe-west2:db-ticket-master"
