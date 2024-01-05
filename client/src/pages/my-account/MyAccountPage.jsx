@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { NavBar } from '../../components/headerbar/NavBar';
 import { TextInput } from '../../components/text-input/TextInput';
 import { Button } from '../../components/button/Button';
@@ -17,11 +17,12 @@ function MyAccountPage(props) {
                     <TextInput label="Last Name" name="lastName" placeholder="Enter your last name" />
                 </div>
                 <div className="form-row">
-                    <TextInput label="ID" name="id" placeholder="Enter your ID" />
+                    <TextInput label="Member type" name="member_type" />
                     <TextInput label="Organisation" name="organisation" placeholder="Enter your organisation" />
                 </div>
                 <div className="form-row">
                     <TextInput label="Email" name="email" placeholder="Enter your email" />
+                    <TextInput label="ID" name="id"  />
                 </div>
                 <div className="form-buttons">
                     <Button save text="Save" onClick={() => {}} className="btn-save" />
