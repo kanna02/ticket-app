@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { NavBar } from '../../components/headerbar/NavBar';
+import { NavBar } from '../../components/navbar/NavBar';
 import { TextInput } from '../../components/text-input/TextInput';
 import { Button } from '../../components/button/Button';
 import './MyAccountPage.css';

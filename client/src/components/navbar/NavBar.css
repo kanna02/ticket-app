@@ -16,6 +16,10 @@
 .h1-navbar {
   margin: 0; 
   padding-left: 50px; 
+  color: white;
+  font-size: 50px;
+  font-family: Inter;
+  font-weight: 500;
 }
 
 .icon-container a {
@@ -29,5 +33,5 @@ padding-right: 50px;
 }
 
 a.active {
-  color: black;
+  color: #FCC378;
 }

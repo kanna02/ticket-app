@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { TicketPopup } from "../../components/ticket-popup/TicketPopup";
-import { NavBar } from "../../components/headerbar/NavBar";
+import { NavBar } from "../../components/navbar/NavBar";
 import { StatusColumn } from "../../components/status-column/StatusColumn";
 import { useLocation } from 'react-router-dom';
 import axios from "axios";

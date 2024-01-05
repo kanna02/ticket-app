@@ -1,5 +1,5 @@
 import React from "react";
-import { NavBar } from "../../components/headerbar/NavBar";
+import { NavBar } from "../../components/navbar/NavBar";
 import { ProjectCard } from '../../components/project-card/ProjectCard';
 import { useState, useEffect } from "react";
 import './MyProjectsPage.css';
