@@ -1,7 +1,7 @@
 import React from "react";
 import { NavBar } from "../../components/headerbar/NavBar";
 import { ProjectCard } from '../../components/project-card/ProjectCard';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import './MyProjectsPage.css';
 import { ProjectPopup } from "../../components/project-popup/ProjectPopup";
 import { Button } from "../../components/button/Button";
@@ -11,18 +11,37 @@ import axios from "axios";
 function MyProjectsPage(props) {
 
     const [showProjectPopup, setShowProjectPopup] = useState(false);
+    const [projectId, setProjectID] = useState("");
     const [projectTitle, setProjectTitle] = useState("");
     const [projectDescription, setProjectDescription] = useState("");
     const [projectCompletionDate, setProjectCompletionDate] = useState(null);
     const [projectMembers, setProjectMembers] = useState("");
 
     //TODO: get this from api/get/projects
-    const projects = [
-        { name: "Project Name 1", description: "This form allows you to generate random text strings", participants: 4, completionDate: "23.01.2024" },
-        { name: "Project Name 1", description: "This form allows you to generate random text strings", participants: 4, completionDate: "23.01.2024" },
-        { name: "Project Name 1", description: "This form allows you to generate random text strings", participants: 4, completionDate: "23.01.2024" },
-        { name: "Project Name 1", description: "This form allows you to generate random text strings", participants: 4, completionDate: "23.01.2024" },
-    ];
+    // const projects = [
+    //     { name: "Project Name 1", description: "This form allows you to generate random text strings", participants: 4, completionDate: "23.01.2024" },
+    //     { name: "Project Name 1", description: "This form allows you to generate random text strings", participants: 4, completionDate: "23.01.2024" },
+    //     { name: "Project Name 1", description: "This form allows you to generate random text strings", participants: 4, completionDate: "23.01.2024" },
+    //     { name: "Project Name 1", description: "This form allows you to generate random text strings", participants: 4, completionDate: "23.01.2024" },
+    // ];
+    const [projects, setProjects] = useState([]);
+
+  
+
+    useEffect(() => {
+        const fetchProjects = async () => {
+            try {
+                const response = await axios.get('https://db-api-dot-task-master-409210.nw.r.appspot.com/api/get/projects');
+                setProjects(response.data);
+                console.log(response.data);
+            } catch (error) {
+                console.error("Error fetching projects:", error);
+                // Handle error based on your requirements
+            }
+        };
+
+        fetchProjects();
+    }, []);
 
     const closePopup = () => {
         setShowProjectPopup(false);
@@ -30,6 +49,14 @@ function MyProjectsPage(props) {
 
     const openPopup = () => {
         setShowProjectPopup(true);
+    }
+    const formatDate = (projectCompletionDate) =>{
+        const date_format = new Date(projectCompletionDate)
+        // const completionDateFormatted = `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}`
+
+        const completionDateFormatted = `${date_format.getFullYear()}-${date_format.getMonth()+1}-${date_format.getDate()}`
+
+        return completionDateFormatted
     }
 
     const saveProject = () => {
@@ -44,9 +71,11 @@ function MyProjectsPage(props) {
             
             const baseURL = 'https://db-api-dot-task-master-409210.nw.r.appspot.com/api/post/project';
             const body = {
+                project_id: projectId,
                 title: projectTitle,
                 description: projectDescription,
-                completion_date: completionDateFormatted
+                completion_date: completionDateFormatted,
+                members: projectMembers
             }
             axios.post(baseURL, body
                 ).then((response) => {
@@ -77,11 +106,13 @@ function MyProjectsPage(props) {
                 {projects.map((project, index) => (
                     <ProjectCard 
                         key={index} 
-                        name={project.name}                          
+                        id={project.project_id}
+                        name={project.title}                          
                         projectDescription={project.description}                   
-                        participants={project.participants}
-                        completionDate={project.completionDate}
+                        participants={project.members}
+                        completionDate={formatDate(project.completion_date)}
                     />
+
                 ))}
             </div>
         {showProjectPopup && 

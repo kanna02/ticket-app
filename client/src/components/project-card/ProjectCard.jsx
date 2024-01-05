@@ -6,13 +6,15 @@ export const ProjectCard = (props) => {
 
   const handleCardClick = () => {
 
-    navigate('/project-board');
+    // navigate('/project-board');
+    navigate('/project-board', { state: { projectId: props.id } });
   };
+
   return (
 
 <div className="project-card" onClick={handleCardClick}>
       <div className="project-content">
-    
+        <h2>ID: {props.id}</h2>
         <h2>{props.name}</h2>
         <p>{props.projectDescription}</p>
         <hr  />
