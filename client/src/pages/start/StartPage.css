@@ -6,25 +6,19 @@
 .Image-Positioning {
   position: relative;
   width: 600px;
-  padding-top: 200px;
+  padding-top: 150px;
 }
 
 .Left-Part {
-  width: 500px;
+  width: 600px;
   text-align: left;
-  padding-left: 150px;
+  padding-left: 50px;
   padding-top: 200px;
+  padding-right: 50px;
 }
 
-.App-header {
-  background-color: white;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: black;
+.Google-Positioning {
+  padding-left: 140px;
 }
 
 .Title {
@@ -38,7 +32,6 @@
   font-size: 30px;
   font-family: Inter;
   font-weight: 340;
-
 }
 
 .Google-Button {

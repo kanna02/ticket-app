@@ -1,11 +1,8 @@
 import { useEffect, useState } from 'react';
 import dashboard from '../../assets/dashboard.png'
-import google_icon from '../../assets/google_Icon.png'
 import './StartPage.css';
 import axios from 'axios';
 import LoginButton from "../../components/login/login";
-import { GoogleLogin, GoogleOAuthProvider } from '@react-oauth/google';
-
 
 function StartPage() {
 
@@ -24,28 +21,16 @@ function StartPage() {
   return (
     <div className="App">
       <div className='Left-Part'>
-        <p className="Title"> Welcome to InfoTick.</p>
+        <p className="Title"> Welcome to TaskMaster.</p>
+        <br/><br/>
         <p className='Subtitle'>
           Efficiently manage your project <br/>
           tasks - individually or as part of a team.
         </p>
-        <LoginButton/>
-        {/* <GoogleOAuthProvider clientId='975454066980-4g7e706rtl1ukvctquj9g5ubg3cbvgrq.apps.googleusercontent.com'>
-        <GoogleLogin
-        onSuccess={(credentialResponse) =>{
-          console.log(credentialResponse)
-        }}
-        onError={() => {
-          console.log("Login failed")
-        }}
-        />
-        
-        </GoogleOAuthProvider> */}
-        {/* <LoginButton/> */}
-        {/* <div className='Google-Button'>
-          <img src={google_icon} className="Google-Icon" alt="dashboard" />
-          <p className='Google-Text'>Sign in with Google</p>         
-        </div> */}
+        <br/><br/>
+        <div className='Google-Positioning'>
+          <LoginButton className="Google-Button"/>
+        </div>
       </div>
       <div className='Image-Positioning'>
         <img src={dashboard} className="" alt="dashboard" />
