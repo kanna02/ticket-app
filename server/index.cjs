@@ -168,7 +168,7 @@ app.put("/api/update/ticket/:id", (req,res)=>{
   const user_id = req.body.user_id;
   const project_id = req.body.project_id;
   const complexity = req.body.complexity;
-  const ticket_status = req.body.ticket_statusstatus;
+  const ticket_status = req.body.ticket_status;
   const priority = req.body.priority;
   const completion_date = req.body.completion_date;
 
