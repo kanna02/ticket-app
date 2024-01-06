@@ -6,6 +6,7 @@ import './MyProjectsPage.css';
 import { ProjectPopup } from "../../components/project-popup/ProjectPopup";
 import { Button } from "../../components/button/Button";
 import axios from "axios";
+import { formatDate } from "../../Helper";
 
 
 function MyProjectsPage(props) {
@@ -49,14 +50,6 @@ function MyProjectsPage(props) {
 
     const openPopup = () => {
         setShowProjectPopup(true);
-    }
-    const formatDate = (projectCompletionDate) =>{
-        const date_format = new Date(projectCompletionDate)
-        // const completionDateFormatted = `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}`
-
-        const completionDateFormatted = `${date_format.getFullYear()}-${date_format.getMonth()+1}-${date_format.getDate()}`
-
-        return completionDateFormatted
     }
 
     const saveProject = () => {
