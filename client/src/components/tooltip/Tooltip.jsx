@@ -4,9 +4,9 @@ import './Tooltip.css'
 function Tooltip(props) {
 
     return (
-        <div class="tooltip" >
+        <div className="tooltip" >
             {props.children}
-            <span class="tooltiptext">{props.text}</span>
+            <span className="tooltiptext">{props.text}</span>
         </div>      
     );
 }
