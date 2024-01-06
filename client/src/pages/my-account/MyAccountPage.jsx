@@ -3,9 +3,32 @@ import { NavBar } from '../../components/navbar/NavBar';
 import { TextInput } from '../../components/text-input/TextInput';
 import { Button } from '../../components/button/Button';
 import './MyAccountPage.css';
+import axios from 'axios';
 
-function MyAccountPage(props) {
+
+function MyAccountPage({sharedData}) {
     // ... other logic
+    // get email from Start-Page
+
+    const [user, setUser] = useState([]);
+
+
+    useEffect(
+        () => {
+            if(sharedData) {               
+                const baseURL = `https://db-api-dot-task-master-409210.nw.r.appspot.com/api/getUserFromEmail/${sharedData.email}`;
+                
+                axios.get(baseURL).then((response) => {
+                    setUser(response.data);
+                });
+            }
+        },
+        [sharedData]
+    );
+
+    // console.log
+
+    
 
     return (
         <div className="my-account-page">
@@ -13,16 +36,16 @@ function MyAccountPage(props) {
             <div className="account-form">
                 <h2 className="form-title">My Account</h2>
                 <div className="form-row">
-                    <TextInput label="First Name" name="firstName" placeholder="Enter your first name" />
-                    <TextInput label="Last Name" name="lastName" placeholder="Enter your last name" />
+                    <TextInput label="First Name" name="firstName" placeholder={user[0].name ? user[0].name : "Enter your first name"} />
+                    <TextInput label="Last Name" name="lastName" placeholder={user[0].last_name ? user[0].last_name : "Enter your first name"} />
                 </div>
                 <div className="form-row">
-                    <TextInput label="Member type" name="member_type" />
-                    <TextInput label="Organisation" name="organisation" placeholder="Enter your organisation" />
+                    <TextInput label="Member type" name="member_type" placeholder={user[0].type}/>
+                    <TextInput label="Organisation" name="organisation" placeholder={user[0].organisation ? user[0].organisation : "Enter your organisation"} />
                 </div>
                 <div className="form-row">
-                    <TextInput label="Email" name="email" placeholder="Enter your email" />
-                    <TextInput label="ID" name="id"  />
+                    <TextInput label="Email" name="email" placeholder={user[0].email} />
+                    <TextInput label="ID" name="id"  placeholder={user[0].user_id}/>
                 </div>
                 <div className="form-buttons">
                     <Button save text="Save" onClick={() => {}} className="btn-save" />
@@ -32,7 +55,7 @@ function MyAccountPage(props) {
         </div>
     );
 }
-<div className="header-actions">
+{/* <div className="header-actions"> */}
 {/* <Button round onClick={handleAddProjectClick} />              */}
-</div>
+// </div>
 export default MyAccountPage;

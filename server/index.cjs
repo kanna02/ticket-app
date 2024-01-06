@@ -26,10 +26,10 @@ app.get("/api/get/users", (req,res)=>{
 });
 
 
-// Route to get single User by user-id
-app.get("/api/getUserFromId/:id", (req,res)=>{
-  const id = req.params.id;
-  database.query("SELECT * FROM User WHERE user_id = ?", id, (err,result)=>{
+// Route to get single User by email
+app.get("/api/getUserFromEmail/:email", (req,res)=>{
+  const email = req.params.email;
+  database.query("SELECT * FROM User WHERE email = ?", email, (err,result)=>{
     req.setTimeout(500000);
     if(err) {
       console.log(err)

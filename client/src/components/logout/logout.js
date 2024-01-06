@@ -11,9 +11,9 @@ function Logout() {
     };
  
     return (
-<div id="signOutButton">
-<button onClick={handleLogout}>Logout</button>
-</div>
+        <div id="signOutButton">
+            <button onClick={handleLogout}>Logout</button>
+        </div>
     );
 }
  

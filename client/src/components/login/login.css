@@ -1,0 +1,27 @@
+.Google-Button {
+    border: 1px solid blueviolet;
+    border-radius: 15px;
+    text-align: center; 
+    margin-right: 200px;
+    display: flex;
+    transition: background-color 1s ease;
+}
+
+.Google-Button:hover {
+    background-color: blueviolet ;
+    color: white;
+    cursor: pointer;
+}
+
+.Google-Text {
+color: gray;
+font-size: 23px;
+}
+
+.Google-Icon {
+width: 10%;
+height: auto;
+position: relative;
+align-items: center;
+padding: 20px;
+}
