@@ -5,30 +5,30 @@ import { Button } from '../../components/button/Button';
 import './MyAccountPage.css';
 import axios from 'axios';
 
-
+import { useLocation } from 'react-router-dom';
 function MyAccountPage({sharedData}) {
     // ... other logic
     // get email from Start-Page
+    const location = useLocation();
+    const [user, setUser] = useState(null);
+    console.log("first")
 
-    const [user, setUser] = useState([]);
+    useEffect(() => {
+        if (sharedData) {   
+            const baseURL = `https://db-api-dot-task-master-409210.nw.r.appspot.com/api/getUserFromEmail/${sharedData}`;
+            axios.get(baseURL).then((response) => {
+                console.log("second")
+                setUser(response.data);
+                console.log(sharedData)
+            }).catch((error) => {
+                console.error("Error fetching user data:", error);
+            });
+        }
+    }, [sharedData]);
 
-
-    useEffect(
-        () => {
-            if(sharedData) {               
-                const baseURL = `https://db-api-dot-task-master-409210.nw.r.appspot.com/api/getUserFromEmail/${sharedData.email}`;
-                
-                axios.get(baseURL).then((response) => {
-                    setUser(response.data);
-                });
-            }
-        },
-        [sharedData]
-    );
-
-    // console.log
-
-    
+    console.log(sharedData)
+    // const User = user[0]
+    console.log("user++" +user)
 
     return (
         <div className="my-account-page">
@@ -36,7 +36,7 @@ function MyAccountPage({sharedData}) {
             <div className="account-form">
                 <h2 className="form-title">My Account</h2>
                 <div className="form-row">
-                    <TextInput label="First Name" name="firstName" placeholder={user[0].name ? user[0].name : "Enter your first name"} />
+                    <TextInput label="First Name" name="firstName" placeholder={user[0].name || "Enter your first name"} />
                     <TextInput label="Last Name" name="lastName" placeholder={user[0].last_name ? user[0].last_name : "Enter your first name"} />
                 </div>
                 <div className="form-row">
@@ -55,7 +55,6 @@ function MyAccountPage({sharedData}) {
         </div>
     );
 }
-{/* <div className="header-actions"> */}
-{/* <Button round onClick={handleAddProjectClick} />              */}
-// </div>
+
+
 export default MyAccountPage;
