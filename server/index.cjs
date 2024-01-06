@@ -129,7 +129,7 @@ app.post("/api/post/ticket", (req,res)=>{
   const user_id = req.body.user_id;
   const project_id = req.body.project_id;
   const complexity = req.body.complexity;
-  const ticket_status = req.body.status;
+  const ticket_status = req.body.ticket_status;
   const priority = req.body.priority;
   const completion_date = req.body.completion_date;
 
@@ -156,6 +156,20 @@ app.post("/api/post/project", (req,res)=>{
     } 
     res.send("inserted new project")
     console.log("query executed")
+  });   
+});
+
+// Route to update status of existing Ticket by id
+app.put("/api/update/ticket/status/:id", (req,res)=>{
+  req.setTimeout(500000);
+  const id = req.params.id;
+  const ticket_status = req.body.ticket_status;
+  database.query(`UPDATE Ticket SET ticket_status="${ticket_status}" WHERE ticket_id = "${id}"`,[ticket_status, id], (err,result)=>{
+    if(err) {
+      console.log(err.message)
+    }
+    res.send("updated ticket")
+    console.log("query executed") 
   });   
 });
 

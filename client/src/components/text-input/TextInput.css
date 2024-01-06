@@ -3,8 +3,16 @@
   padding: 12px 20px;
   margin: 8px 0;
   box-sizing: border-box;
+
 }
 .input-containers {
-  /* flex: 1; */
+  flex: 1; 
   margin: 0 10px;
+}
+
+.input-description {
+  width: 100%;
+  padding: 24px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
 }

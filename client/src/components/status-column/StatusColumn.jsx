@@ -43,7 +43,7 @@ export const StatusColumn = ({ tickets }) => {
 
   const updateTicketStatus = async (ticketId, newStatus) => {
     try {
-      await axios.put(`https://db-api-dot-task-master-409210.nw.r.appspot.com//api/update/ticket/${ticketId}`, {
+      await axios.put(`https://db-api-dot-task-master-409210.nw.r.appspot.com/api/update/ticket/status/${ticketId}`, {
         ticket_status: newStatus
       });
       console.log(`Ticket ${ticketId} status updated to ${newStatus}`);

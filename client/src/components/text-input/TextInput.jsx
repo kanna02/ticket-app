@@ -1,11 +1,11 @@
 import React from 'react';
 import "./TextInput.css";
 
-export const TextInput = ({ label, name, placeholder, value, setValue }) => {
+export const TextInput = (props) => {
   return (
     <div className='input-containers'>
-      {label && <label className='input-label'>{label}</label>}
-      <input className='input-text' value={value} onChange={setValue} name={name} placeholder={placeholder} />
+      {props.label && <label className='input-label'>{props.label}</label>}
+      <input className={props.description ? 'input-description' : 'input-text'} value={props.value} onChange={props.setValue} name={props.name} placeholder={props.placeholder} />
     </div>
   );
 };
