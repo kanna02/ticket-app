@@ -38,6 +38,18 @@ app.get("/api/getUserFromId/:id", (req,res)=>{
   });      
 });
 
+// Route to get single User by email
+app.get("/api/getUserFromEmail/:email", (req,res)=>{
+  const email = req.params.email;
+  database.query("SELECT * FROM User WHERE email = ?", email, (err,result)=>{
+    req.setTimeout(500000);
+    if(err) {
+      console.log(err)
+    } 
+    res.send(result)
+  });      
+});
+
 // Route to get all Tickets
 app.get("/api/get/tickets", (req,res)=>{
   req.setTimeout(500000);
