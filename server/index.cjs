@@ -235,7 +235,7 @@ app.put("/api/update/user/:id", (req,res)=>{
   const last_name = req.body.last_name;
   const email = req.body.email;
 
-  database.query(`UPDATE User SET name="${name}", type="${type}", organisation="${organisation}, last_name="${last_name}, email="${email}" WHERE user_id="${id}"`,[name, type, organisation, last_name, email, id], (err,result)=>{
+  database.query(`UPDATE User SET name="${name}", type="${type}", organisation="${organisation}", last_name="${last_name}", email="${email}" WHERE user_id="${id}"`,[name, type, organisation, last_name, email, id], (err,result)=>{
     if(err) {
       console.log(err.message)
     } 
