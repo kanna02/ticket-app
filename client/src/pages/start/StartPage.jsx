@@ -5,14 +5,23 @@ import './StartPage.css';
 import axios from 'axios';
 import google_icon from '../../assets/google_Icon.png'
 import { useNavigate } from 'react-router-dom';
+import { Button } from '../../components/button/Button';
+import { NewUserPopup } from '../../components/new-user-popup/NewUserPopup';
 
 function StartPage() {
+  const clientId = "975454066980-4g7e706rtl1ukvctquj9g5ubg3cbvgrq.apps.googleusercontent.com"; //TODO: save to environment file
+
   const navigate = useNavigate();
 
   const [loginResponse, setLoginResponse ] = useState(null);
   const [loginProfile, setLoginProfile ] = useState(null);
+  const [showPopup, setShowPopup ] = useState(false);
 
-  const clientId = "975454066980-4g7e706rtl1ukvctquj9g5ubg3cbvgrq.apps.googleusercontent.com"; //TODO: save to environment file
+  const [userFirstName, setUserFirstName] = useState(null);
+  const [userLastName, setUserLastName] = useState(null);
+  const [userType, setUserType] = useState(null);
+  const [userOrganisation, setUserOrganisation] = useState(null);
+  const [userEmail, setUserEmail] = useState(null);
 
   useEffect(() => {
     if (loginResponse?.access_token) {
@@ -39,6 +48,23 @@ function StartPage() {
     }
   }, [loginProfile, navigate]);
 
+  // create user account with new email
+  const createUserAccount = () => {
+    const baseURL = `https://db-api-dot-task-master-409210.nw.r.appspot.com/api/post/user`;
+    const body = { 
+        name: userFirstName,
+        firstName: userLastName,
+        organisation: userOrganisation,
+        type: userType,
+        email: userEmail
+    }
+    axios.post(baseURL,body).then((response) => {
+        console.log(response)
+    }).catch((error) => {
+        console.error("Error creating user data:", error);
+    });
+  }
+
   // google login
   const login = useGoogleLogin({
     onSuccess: (codeResponse) => setLoginResponse(codeResponse),
@@ -46,8 +72,21 @@ function StartPage() {
     clientId: clientId,
   });
 
+  const handleSave = () => {
+    createUserAccount();
+    closePopup();
+  }
+
+  const openPopup = () => {
+    setShowPopup(true);
+  }
+
+  const closePopup = () => {
+    setShowPopup(false);
+  }
+
   const handleLogin = () => {
-    console.log(loginProfile) 
+    // console.log(loginProfile) 
     login();
   };
 
@@ -65,10 +104,22 @@ function StartPage() {
             <img src={google_icon} className="Google-Icon" alt="google-icon" />
             <p className='Google-Text'>Sign in with Google</p>      
         </div>
+        <br/>
+        <Button text="Dont, have an account? Create a User Account" onClick={openPopup}/>
       </div>
       <div className='Image-Positioning'>
         <img src={dashboard} className="" alt="dashboard" />
       </div>
+      {showPopup && 
+        <NewUserPopup 
+          saveOnClick={handleSave} cancelOnClick={closePopup}
+          firstName={userFirstName} setFirstName={e => setUserFirstName(e.target.value)}
+          lastName={userLastName} setLastName={e => setUserLastName(e.target.value)}
+          organisation={userOrganisation} setOrganisation={e => setUserOrganisation(e.target.value)}
+          type={userType} setType={e => setUserType(e.target.value)}
+          email={userEmail} setEmail={e => setUserEmail(e.target.value)}
+        />
+      }
     </div>
   );
 }

@@ -12,15 +12,19 @@ function MyAccountPage() {
     // Retrieve data from localStorage
     const storedData = JSON.parse(localStorage.getItem('myData'));
 
+    const getUserAccount = () => {
+        const baseURL = `https://db-api-dot-task-master-409210.nw.r.appspot.com/api/getUserFromEmail/${storedData.email}`;
+        axios.get(baseURL).then((response) => {
+            setUserList(response.data);
+        }).catch((error) => {
+            console.error("Error fetching user data:", error);
+        });
+    }
+
     // Retrieve user account data
-    useEffect(() => {
+    useEffect( () => {
             if (storedData.email) {   
-                const baseURL = `https://db-api-dot-task-master-409210.nw.r.appspot.com/api/getUserFromEmail/${storedData.email}`;
-                axios.get(baseURL).then((response) => {
-                    setUserList(response.data);
-                }).catch((error) => {
-                    console.error("Error fetching user data:", error);
-                });
+                getUserAccount();             
             }
     }, [storedData.email]);
 
@@ -33,16 +37,16 @@ function MyAccountPage() {
                 <div className="account-form">
                     <h2 className="form-title">My Account</h2>
                     <div className="form-row">
-                        <TextInput label="First Name" name="firstName" placeholder={user.name || "Enter your first name"} />
-                        <TextInput label="Last Name" name="lastName" placeholder={user.last_name ? user.last_name : "Enter your first name"} />
+                        <TextInput margin label="First Name" name="firstName" placeholder={user.name || "Enter your first name"} />
+                        <TextInput margin label="Last Name" name="lastName" placeholder={user.last_name ? user.last_name : "Enter your first name"} />
                     </div>
                     <div className="form-row">
-                        <TextInput label="Member type" name="member_type" placeholder={user.type}/>
-                        <TextInput label="Organisation" name="organisation" placeholder={user.organisation ? user.organisation : "Enter your organisation"} />
+                        <TextInput margin label="Member type" name="member_type" placeholder={user.type || "Enter your type"}/>
+                        <TextInput margin label="Organisation" name="organisation" placeholder={user.organisation ? user.organisation : "Enter your organisation"} />
                     </div>
                     <div className="form-row">
-                        <TextInput label="Email" name="email" placeholder={user.email} />
-                        <TextInput disabled label="ID" name="id"  placeholder={user.user_id}/>
+                        <TextInput margin label="Email" name="email" placeholder={user.email} />
+                        <TextInput margin disabled label="ID" name="id"  placeholder={user.user_id}/>
                     </div>
                     <div className="form-buttons">
                         <Button save text="Save" onClick={() => {}} className="btn-save" />
