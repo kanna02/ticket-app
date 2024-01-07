@@ -33,7 +33,7 @@ function MyProjectsPage(props) {
             try {
                 const response = await axios.get('https://db-api-dot-task-master-409210.nw.r.appspot.com/api/get/projects');
                 setProjects(response.data);
-                console.log(response.data);
+                // console.log(response.data);
             } catch (error) {
                 console.error("Error fetching projects:", error);
                 // Handle error based on your requirements

@@ -27,7 +27,7 @@ function ProjectBoardPage(props) {
         const fetchTickets = async () => {
             try {
                 const response = await axios.get(`https://db-api-dot-task-master-409210.nw.r.appspot.com/api/getTicketFromProjectId/${projectId}`);
-                console.log("Tickets:", response.data);
+                // console.log("Tickets:", response.data);
                 setTickets(response.data);
             } catch (error) {
                 console.error("Error fetching tickets:", error);
