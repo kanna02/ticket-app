@@ -50,12 +50,13 @@
 }
 
 .Google-Text {
+  padding-top: 22px;
   color: gray;
   font-size: 23px;
 }
 
 .Google-Icon {
-  width: 10%;
+  width: 25%;
   height: auto;
   position: relative;
   align-items: center;

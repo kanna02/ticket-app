@@ -1,23 +1,56 @@
 import { useEffect, useState } from 'react';
+import { useGoogleLogin } from '@react-oauth/google';
 import dashboard from '../../assets/dashboard.png'
 import './StartPage.css';
 import axios from 'axios';
-import LoginButton from "../../components/login/login";
+import google_icon from '../../assets/google_Icon.png'
+import { useNavigate } from 'react-router-dom';
 
 function StartPage() {
+  const navigate = useNavigate();
 
-  const [users, setUsers] = useState([]);
+  const [loginResponse, setLoginResponse ] = useState(null);
+  const [loginProfile, setLoginProfile ] = useState(null);
 
-  const baseURL = 'https://db-api-dot-task-master-409210.nw.r.appspot.com/api/get/users';
+  const clientId = "975454066980-4g7e706rtl1ukvctquj9g5ubg3cbvgrq.apps.googleusercontent.com"; //TODO: save to environment file
 
   useEffect(() => {
-    axios.get(baseURL).then((response) => {
-      setUsers(response.data);
-    });
-  }, []);
+    if (loginResponse?.access_token) {
+        axios.get(`https://www.googleapis.com/oauth2/v1/userinfo?access_token=${loginResponse.access_token}`, {
+            headers: {
+                Authorization: `Bearer ${loginResponse.access_token}`,
+                Accept: 'application/json',
+            },
+        })
+        .then((res) => {
+            setLoginProfile(res.data);
+        })
+        .catch((err) => {
+            console.log("Error fetching user data:", err); // Error log
+        });
+    }
+  }, [loginResponse]);
 
-  console.log(users);
-  
+  useEffect(() => {
+    if (loginProfile) {
+        const data = { email: loginProfile.email}
+        localStorage.setItem('myData', JSON.stringify(data)); // Save data to localStorage
+        navigate("/my-projects");
+    }
+  }, [loginProfile, navigate]);
+
+  // google login
+  const login = useGoogleLogin({
+    onSuccess: (codeResponse) => setLoginResponse(codeResponse),
+    onError: (error) => console.log('Login Failed:', error),
+    clientId: clientId,
+  });
+
+  const handleLogin = () => {
+    console.log(loginProfile) 
+    login();
+  };
+
   return (
     <div className="App">
       <div className='Left-Part'>
@@ -28,8 +61,9 @@ function StartPage() {
           tasks - individually or as part of a team.
         </p>
         <br/><br/>
-        <div className='Google-Positioning'>
-          <LoginButton className="Google-Button"/>
+        <div className='Google-Button' onClick={() => handleLogin()}>
+            <img src={google_icon} className="Google-Icon" alt="google-icon" />
+            <p className='Google-Text'>Sign in with Google</p>      
         </div>
       </div>
       <div className='Image-Positioning'>
