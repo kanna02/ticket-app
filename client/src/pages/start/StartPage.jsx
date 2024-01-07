@@ -105,7 +105,7 @@ function StartPage() {
             <p className='Google-Text'>Sign in with Google</p>      
         </div>
         <br/>
-        <Button text="Dont, have an account? Create a User Account" onClick={openPopup}/>
+        <Button createAccount text="Dont, have an account? Create a User Account" onClick={openPopup}/>
       </div>
       <div className='Image-Positioning'>
         <img src={dashboard} className="" alt="dashboard" />
