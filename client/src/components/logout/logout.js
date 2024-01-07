@@ -1,19 +1,12 @@
 import { googleLogout } from '@react-oauth/google';
+import { Button } from '../button/Button';
  
 function Logout() {
-    const onSuccess = () => {
-        console.log("Log out successful!");
-    };
- 
-    const handleLogout = () => {
-        googleLogout();
-        onSuccess();
-    };
  
     return (
-<div id="signOutButton">
-<button onClick={handleLogout}>Logout</button>
-</div>
+        <div id="signOutButton">
+            <Button onClick={googleLogout} text="Logout"/>
+        </div>
     );
 }
  

@@ -7,6 +7,7 @@ import { ProjectPopup } from "../../components/project-popup/ProjectPopup";
 import { Button } from "../../components/button/Button";
 import axios from "axios";
 import { formatDate } from "../../Helper";
+import Tooltip from "../../components/tooltip/Tooltip";
 
 
 function MyProjectsPage(props) {
@@ -34,7 +35,6 @@ function MyProjectsPage(props) {
             try {
                 const response = await axios.get('https://db-api-dot-task-master-409210.nw.r.appspot.com/api/get/projects');
                 setProjects(response.data);
-                console.log(response.data);
             } catch (error) {
                 console.error("Error fetching projects:", error);
                 // Handle error based on your requirements
@@ -91,9 +91,11 @@ function MyProjectsPage(props) {
                     <h1>My Projects</h1>
                     <p>Welcome back, select your project.</p>
                 </div>
-                <div className="header-actions">
-                    <Button round onClick={openPopup}/>             
-                </div>
+                    <div className="header-actions">
+                        <Tooltip text="Create New Project">
+                            <Button round onClick={openPopup}/>  
+                        </Tooltip>
+                    </div>
             </div>
             <div className="projects-container">
                 {projects.map((project, index) => (

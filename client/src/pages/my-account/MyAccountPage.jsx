@@ -7,12 +7,12 @@ import axios from 'axios';
 
 function MyAccountPage(props) {
 
-    const [userList, setUserList] = useState(null);
-    const [userFirstName, setUserFirstName] = useState(null);
-    const [userLastName, setUserLastName] = useState(null);
-    const [userType, setUserType] = useState(null);
-    const [userOrganisation, setUserOrganisation] = useState(null);
-    const [userEmail, setUserEmail] = useState(null);
+    const [userList, setUserList] = useState("");
+    const [userFirstName, setUserFirstName] = useState("");
+    const [userLastName, setUserLastName] = useState("");
+    const [userType, setUserType] = useState("");
+    const [userOrganisation, setUserOrganisation] = useState("");
+    const [userEmail, setUserEmail] = useState("");
 
     // Retrieve data from localStorage
     const storedData = JSON.parse(localStorage.getItem('myData'));
@@ -49,14 +49,14 @@ function MyAccountPage(props) {
         const updateUserAccount = () => {
             const baseURL = `https://db-api-dot-task-master-409210.nw.r.appspot.com/api/update/user/${user.user_id}`;
             const body = { 
-                name: userFirstName ? userFirstName : user.name,
-                last_name: userLastName ? userLastName : user.last_name,
-                organisation: userOrganisation ? userOrganisation : user.organisation,
-                type: userType ? userType : user.type,
-                email: userEmail ? userEmail : user.email
+                name: userFirstName != "" ? userFirstName : user.name,
+                last_name: userLastName != "" ? userLastName : user.last_name,
+                organisation: userOrganisation != "" ? userOrganisation : user.organisation,
+                type: userType != "" ? userType : user.type,
+                email: userEmail != "" ? userEmail : user.email
             }
             axios.put(baseURL,body).then((response) => {
-                console.log(response)
+                // console.log(response) // for debug
             }).catch((error) => {
                 console.error("Error creating user data:", error);
             });

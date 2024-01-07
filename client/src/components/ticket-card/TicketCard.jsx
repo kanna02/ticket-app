@@ -3,6 +3,7 @@ import "./Ticket-card.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faVolumeOff, faVolumeLow, faVolumeHigh } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
+import Tooltip from '../tooltip/Tooltip';
 export const getPriorityIcon = (priority) => {
   switch (priority) {
     case 'high':
@@ -32,13 +33,13 @@ export const TicketCard = ({priority, name, id, onDelete  }) => {
   };
   
     return (
-      <div className="ticket-card" onContextMenu={handleRightClick}>
-        <h3>{name}</h3>
-        <div className="ticket-footer">
-          <FontAwesomeIcon icon={priorityIcon} size="2x" className={`ticket-icon ${priority}`} />
-          {/* <span className="ticket-id">{id}</span> */}
-          <span className='ticket-id'>Ticket ID: {id}</span>
-        </div>
-      </div>
+          <div className="ticket-card" onContextMenu={handleRightClick}>
+              <h3>{name}</h3>
+              <div className="ticket-footer">
+                <FontAwesomeIcon icon={priorityIcon} size="2x" className={`ticket-icon ${priority}`} />
+                {/* <span className="ticket-id">{id}</span> */}
+                <span className='ticket-id'>Ticket ID: {id}</span>
+              </div>
+          </div>
     );
   };

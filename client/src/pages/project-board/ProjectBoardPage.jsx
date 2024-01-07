@@ -7,6 +7,7 @@ import axios from "axios";
 import "../project-board/ProjectBoard.css"
 import { Button } from "../../components/button/Button";
 import { formatDate } from "../../Helper";
+import Tooltip from "../../components/tooltip/Tooltip";
 function ProjectBoardPage(props) {
 
 
@@ -67,7 +68,6 @@ function ProjectBoardPage(props) {
         const fetchTickets = async () => {
             try {
                 const response = await axios.get(`https://db-api-dot-task-master-409210.nw.r.appspot.com/api/getTicketFromProjectId/${projectId}`);
-                console.log("Tickets:", response.data);
                 setTickets(response.data);
             } catch (error) {
                 console.error("Error fetching tickets:", error);
@@ -85,7 +85,9 @@ function ProjectBoardPage(props) {
             <StatusColumn projectId={projectId} tickets={tickets}/>
             <h3 className="delete-info">To delete a ticket, press right button on a ticket</h3>
             <div className="plus-button-positioning">
-            <Button round onClick={openPopup} />
+            <Tooltip point text="Create New Ticket">
+                <Button round onClick={openPopup} />
+            </Tooltip>
             {showTicketPopup && 
                 <TicketPopup 
                 saveOnClick={saveTicket} cancelOnClick={closePopup} 

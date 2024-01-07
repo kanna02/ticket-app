@@ -11,7 +11,7 @@ export const NavBar = () => {
     const currentPath = location.pathname;
 
     const onLogoutSuccess = () => {
-        console.log("Log out successful!");
+        // console.log("Log out successful!"); //for debug
         localStorage.removeItem("user")
     };
   return (

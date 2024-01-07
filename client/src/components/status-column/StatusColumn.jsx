@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { TicketCard } from "../ticket-card/TicketCard";
 import "./Status-column.css";
 import axios from 'axios';
+import Tooltip from '../tooltip/Tooltip';
 export const StatusColumn = ({ tickets }) => {
-  console.log("Received tickets in StatusColumn:", tickets);
 
   // Function to distribute tickets into columns based on their status
   const distributeTickets = (tickets) => {
@@ -46,7 +46,7 @@ export const StatusColumn = ({ tickets }) => {
       await axios.put(`https://db-api-dot-task-master-409210.nw.r.appspot.com/api/update/ticket/status/${ticketId}`, {
         ticket_status: newStatus
       });
-      console.log(`Ticket ${ticketId} status updated to ${newStatus}`);
+      // console.log(`Ticket ${ticketId} status updated to ${newStatus}`); //for debug
     } catch (error) {
       console.error("Error updating ticket status:", error);
     }
@@ -75,8 +75,6 @@ export const StatusColumn = ({ tickets }) => {
 
   const handleDragOver = (e) => {
     e.preventDefault();
-
-    
   };
 
 
